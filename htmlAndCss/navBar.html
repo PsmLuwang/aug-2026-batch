@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NavBar</title>
+
+  <style>
+    * {
+      margin: 0;
+    }
+
+    .nav {
+      background-color: green;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+    }
+    .companyName {
+      color: white;
+      font-size: 22px;
+    }
+
+    .links {
+      display: flex;
+      gap: 16px;
+    }
+    .aTag {
+      color: white;
+      font-size: 16px;
+      text-decoration: none;
+    }
+    .aTag:hover {
+      color: yellow;
+    }
+  </style>
+</head>
+<body>
+  
+  <nav class="nav">
+    <h1 class="companyName">Nav Company</h1>
+
+    <div class="links">
+      <a href="#" class="aTag">Home</a>
+      <a href="#" class="aTag">About</a>
+      <a href="#" class="aTag">Contact</a>
+      <a href="#" class="aTag">Products</a>
+      <a href="#" class="aTag">Terms</a>
+    </div>
+  </nav>
+
+</body>
+</html>
+
+<!-- display: flex -->
+<!-- flex-direction: column, row -->
+<!-- justify-content: start, center, end, space-evenly, space-between, space-around -->
+<!-- align-items: start, center, end -->

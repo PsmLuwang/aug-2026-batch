@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css">
+</head>
+<body class="bg-slate-500 p-5 flex h-dvh items-center justify-center">
+  
+  <section class="bg-slate-800 p-3 rounded-xl text-white max-w-280 grid grid-cols-2">
+    <div class="relative">
+      <img 
+        class="rounded-md w-full h-full absolute top-0 left-0" 
+        src="signupImage.jpeg" 
+        alt="image" 
+      />
+
+      <div class="relative z-10 flex justify-between p-3">
+        <h1 class="font-bold text-2xl">NMU</h1>
+        <button class=" bg-white/20 px-3 h-6 text-xs font-medium rounded-full">
+          Back to website 
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="p-15">
+      <h1 class="text-3xl font-semibold">Create an account</h1>
+      <p class="text-sm text-slate-400 mt-4">
+        Already have an account? 
+        <a href="#" class="text-violet-500">Login</a>
+      </p>
+
+      <form class="space-y-4 mt-10">
+
+        <!-- Name Input -->
+        <div class="flex gap-4">
+          <input 
+            placeholder="First name"
+            type="text" 
+            class="bg-slate-700 h-10 border-2 border-slate-600 rounded-sm px-3" 
+          />
+          <input 
+            placeholder="Last name"
+            type="text" 
+            class="bg-slate-700 h-10 border-2 border-slate-600 rounded-sm px-3" 
+          />
+        </div>
+
+        <!-- Email Input -->
+        <input 
+          placeholder="Email"
+          type="email" 
+          class="bg-slate-700 h-10 w-full border-2 border-slate-600 rounded-sm px-3" 
+        />
+        
+        <!-- Password Input -->
+        <div class="relative">
+          <input 
+            placeholder="Enter your password"
+            type="password" 
+            class="bg-slate-700 h-10 w-full border-2 border-slate-600 rounded-sm px-3" 
+          />
+
+          <i class="fa-regular fa-eye-slash text-xs absolute right-3 top-[50%] translate-y-[-50%]"></i>
+        </div>
+
+        <!-- CheckBox Input -->
+        <div class="flex gap-2 text-xs">
+          <input type="checkbox" name="" id="">
+          <p>
+            I agree to the 
+            <a href="#" class="text-violet-500">Terms & Condition</a>
+          </p>
+        </div>
+
+        <!-- Submit Button -->
+        <button 
+          type="submit" 
+          class="bg-violet-500 w-full h-10 rounded-sm mt-5"
+        >
+          Create Account
+        </button>
+      </form>
+
+      <div class="border-t border-slate-500 my-6 flex justify-center">
+        <span class="bg-slate-800 translate-y-[-50%] px-3 text-xs text-slate-500 font-medium">Or register with</span>
+      </div>
+
+      <div class="flex gap-4">
+        <button class="flex justify-center items-center gap-2 w-full border border-slate-500 h-10 rounded-sm">
+          <img 
+            class="h-5 w-5"
+            src="https://cdn-icons-png.flaticon.com/128/281/281764.png" 
+            alt="icon" 
+          />
+          Google
+        </button>
+        <button class="flex justify-center items-center gap-2 w-full border border-slate-500 h-10 rounded-sm">
+          <img 
+            class="h-5 w-5"
+            src="https://cdn-icons-png.flaticon.com/128/226/226769.png" 
+            alt="icon" 
+          />
+          Apple
+        </button>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
