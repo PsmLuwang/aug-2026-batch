@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    const nums = [10, 30, 60, 20, 40, 50];
+
+
+    for (let i = 0; i < nums.length; i++) {
+
+      for (let j = i + 1; j < nums.length; j++) {
+        
+        if (nums[i] > nums[j]) {
+          let temp = nums[i];
+          nums[i] = nums[j];
+          nums[j] = temp;
+        }
+      }
+      
+    }
+
+    console.log(nums);
+
+
+    const nestedArr = [ [1, 2], ["a", "b", "c"] ]
+    
+
+    
+    // const sortedNums = nums.sort((a, b) => a - b);
+    // const sortedNums = nums.sort((a, b) => b - a);
+    // console.log(sortedNums);
+    
+  </script>
+</body>
+</html>
