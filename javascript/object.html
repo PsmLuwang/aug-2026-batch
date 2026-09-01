@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+    // const person = [
+    // "John", 
+    // "john@gmail.com", 
+    // "1234567890"
+    //]
+    const person1 = {
+      name: "John", 
+      email: "john@gmail.com", 
+      phone: "1234567890",
+      age: 25,
+      favouriteColour: ["Red", "White"],
+      address: {
+        state: "Manipur",
+        district: "Imphal"
+      }
+    }
+
+    const person2 = {
+      name: "Alice",
+      email: "alice@gmail.com",
+      phone: "9876543210",
+      age: 28,
+      favouriteColour: ["Blue", "Black"],
+      address: {
+        state: "Assam",
+        district: "Guwahati"
+      }
+    }
+
+    const person3 = {
+      name: "Robert",
+      email: "robert@gmail.com",
+      phone: "8765432109",
+      age: 32,
+      favouriteColour: ["Green", "Yellow"],
+      address: {
+        state: "Nagaland",
+        district: "Kohima"
+      }
+    }
+
+    const person4 = {
+      name: "Sophia",
+      email: "sophia@gmail.com",
+      phone: "7654321098",
+      age: 22,
+      favouriteColour: ["Pink", "Purple"],
+      address: {
+        state: "Mizoram",
+        district: "Aizawl"
+      }
+    }
+
+    const person5 = {
+      name: "David",
+      email: "david@gmail.com",
+      phone: "6543210987",
+      age: 35,
+      favouriteColour: ["Orange", "White"],
+      address: {
+        state: "Meghalaya",
+        district: "Shillong"
+      }
+    }
+
+    const people = [person1, person2, person3, person4, person5]
+    // console.log(`My name is ${person1.name}. I'm ${person1.age} years old. My contact info is: \n Email: ${person1.email} \n Phone: ${person1.phone}`);
+    // console.log(`My favourite colours are ${person1.favouriteColour[0]}, ${person1.favouriteColour[1]}`);
+    // console.log(`I'm from ${person1.address.district}, ${person1.address.state}`);
+    
+    for (let i = 0; i < people.length; i++) {
+      console.log(`My name is ${people[i].name}. I'm ${people[i].age} years old. My contact info is: \n Email: ${people[i].email} \n Phone: ${people[i].phone}`);
+      console.log('');
+    }
+  </script>
+</body>
+</html>
