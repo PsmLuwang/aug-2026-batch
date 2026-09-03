@@ -8,13 +8,56 @@
 <body>
   
   <script>
-    const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    // const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-    const filterMethod = nums.filter(num => num%2 == 0);
-    console.log(filterMethod);
+    // const mapResult = nums.map(num => console.log(num));
+    // const forEachResult = nums.forEach(num => console.log(num));
+
+    // console.log("mapResult", mapResult);
+    // console.log("forEachResult", forEachResult);
     
-    const mapMethod = nums.map(num => num = num+1);
-    console.log(mapMethod);
+    // const filterMethod = nums.filter(num => num%2 == 0);
+    // console.log("filterMethod", filterMethod);
+    
+    // const mapMethod = nums.map(num => num+1); // num++ ❌ | ++num ✅
+    // console.log("mapMethod", mapMethod);
+    
+    // const forEachMethod = nums.forEach(num => console.log(num));
+    // console.log("forEachMethod", forEachMethod);
+
+    // const someMethod = nums.some(num => num%2 == 0);
+    // console.log("someMethod", someMethod);
+    
+    // const everyMethod = nums.every(num => num > 0);
+    // console.log("everyMethod", everyMethod);
+    
+    // const findMethod = nums.find(num => num > 5);
+    // console.log("findMethod", findMethod);
+
+
+    const numbers = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+
+    // pop, push, shift, unshift, 
+    // slice, splice
+
+    // numbers.pop(); // [10, 20, 30, 40, 50, 60, 70, 80, 90]
+    // numbers.push(110); // [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110]
+
+    // numbers.shift(); // [20, 30, 40, 50, 60, 70, 80, 90, 100]
+    // numbers.unshift(1); // [1, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+
+    // const sliceMethod = numbers.slice(4, 7); // (4, 7] // [50, 60, 70]
+    // console.log("sliceMethod", sliceMethod);
+    
+    // const sliceMethod = numbers.slice(4); // (4, lastElement) // [50, 60, 70, 80, 90, 100]
+    // console.log("sliceMethod", sliceMethod);
+
+    // numbers.splice(3, 5); // (index|startingElement, numberOfElementToRemove) // [10, 20, 30, 90, 100]
+    // numbers.splice(3, 5, 11, 22, 33); // (index|startingElement, numberOfElementToRemove, 11, 22, 33 -> new elements) // [10, 20, 30, 11, 22, 33, 90, 100]
+    // numbers.splice(3); // [10, 20, 30]
+    // numbers.splice(3, 0, 11, 22); // [10, 20, 30, 11, 22, 40, 50, 60, 70, 80, 90, 100]
+    
+    
   </script>
 </body>
 </html>
