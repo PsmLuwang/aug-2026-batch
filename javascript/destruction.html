@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    const nums = [1, 2, 3, 4, 5];
+    const [num1, num2, num3, num4, num5] = nums;
+    console.log(num4);
+
+    const [person1Age, person2Age, person3Age] = [20, 32, 27];
+    console.log(person2Age);
+
+
+    const person = {
+      name: "John",
+      email: "john@gmail.com",
+      phone: "1234567890",
+      state: undefined
+    }
+
+    const {name, email, phone: mobile, state = "Manipur"} = person;
+
+    console.log(state);
+
+
+    // const something = undefined;
+    // const something2 = 10;
+    // const num = something || something2 || 5;
+    // console.log(num);
+    
+    // const something = 10;
+    // const something2 = null;
+    // const num = something && something2 && 5;
+    // console.log(num);
+
+    // {error && console.log("error", error)}
+    
+    // Ternary Operator
+    const condition1 = false;
+    const condition2 = false;
+    const condition3 = false;
+
+    // const num = condition1 ? 5 : 10;
+    // console.log(num);
+
+    const num = condition1 ? 5
+    : condition2 ? 10
+    : condition3 ? 15
+    : 20;
+
+    console.log(num);
+
+    
+    
+    
+    
+  </script>
+</body>
+</html>
