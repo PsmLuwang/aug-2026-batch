@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+    
+
+    // function addition(a, b) {
+    //   const result = a + b;
+
+    //   console.log("addition", result);
+    // }
+
+    // function subtraction(a, b) {
+    //   const result = a - b;
+
+    //   console.log("subtraction", result);
+    // }
+
+
+    // addition(10, 20);
+    // addition(5, 8);
+
+    // subtraction(10, 4);
+
+
+    // function greeting(name) {
+    //   const message = `Hello ${name}!`;
+    //   console.log(message);
+    // }
+
+    // greeting("Priyansu");
+    // greeting("Messi");
+    // greeting("Ronaldo");
+
+
+    // p.r.t/100 = simple interest
+    // function simpleInterest(principal, rate, time) {
+    //   const interest = principal * rate * time / 100;
+    //   return interest;
+    // }
+
+    // const result = simpleInterest(100000, 5, 2);
+    // console.log(result);
+
+
+
+    // function test(a, b) {
+    //   const sum = a + b;
+    //   console.log(sum);
+    //   return sum;
+    // }
+
+    // const testResult = test(10, 20);
+    // console.log(testResult);
+    
+    
+
+    // function discount(amount) {
+    //   if (amount <= 0) {
+    //     return
+    //   }
+
+    //   let discount = 0;
+
+    //   if (amount > 10000) {
+    //     discount = amount * 5 / 100
+    //   } else {
+    //     discount = amount * 2 / 100
+    //   }
+
+    //   return discount;
+    // }
+
+    // console.log(discount(10));
+
+
+    // global scope
+    // var = function scope
+    // const = block scope
+    // let = block scope
+    
+    const globalNum = 100;
+
+    function scopeTest() {
+      console.log(globalNum);
+      
+      if (true) {
+        var a = 10;
+        const b = 20;
+        let c = 30;
+      }
+
+      console.log(a);
+      console.log(b);
+      console.log(c);
+    }
+
+
+    scopeTest();
+    
+
+
+
+    
+  </script>
+</body>
+</html>
