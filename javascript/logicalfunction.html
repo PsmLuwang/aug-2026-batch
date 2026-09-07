@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    const users = [
+      {
+        id: "1",
+        name: "Priyansu",
+        email: "priyansu@gmail.com",
+        password: "password1"
+      },
+      {
+        id: "2",
+        name: "John",
+        email: "john@gmail.com",
+        password: "password2"
+      },
+      {
+        id: "3",
+        name: "Jane",
+        email: "jane@gmail.com",
+        password: "password3"
+      }
+    ]
+
+
+    function findUserByEmail(email) {
+      if (!email) {
+        console.log(`Email is required!`);
+        return;
+      }
+
+      const foundUser = users.find(user => user.email == email);
+
+      if (!foundUser) {
+        console.log(`No user found!`);
+        return;
+      }
+
+      console.log(`ID: ${foundUser.id} \n Name: ${foundUser.name} \n Email: ${foundUser.email}`);
+    }
+
+    // findUserByEmail("priyansu@gmail.com");
+
+
+    function login(email, password) {
+      if (!email || !password) {
+        console.log(`Both email and password are required!`);
+        return;
+      }
+
+      const foundUser = users.find(
+        user => 
+          user.email == email && 
+          user.password == password
+      );
+
+      if (!foundUser) {
+        console.log("Email & Password doesnt match!");
+        return;
+      }
+
+      console.log(`Login successful.`);
+      console.log(`ID: ${foundUser.id} \n Name: ${foundUser.name} \n Email: ${foundUser.email}`);
+    }
+
+    // login("john@gmail.com", "password2");
+
+
+    // amt, distance, member, 
+    function placeOrder(amount, distance, isMember) {
+      if (!amount || !distance) {
+        console.log(`Both amount and distance are required!`);
+        return;
+      }
+
+      // const num = true ? 10 : 5;
+
+      const discount = amount >= 10000 ? amount * 5/100 : 100;
+      const deliveryCharge = isMember ? 0 : 100; 
+      const payableAmount = amount - discount + deliveryCharge;
+      const deliveryTime = distance >= 10 ? 3 : 2;
+
+      console.log(`Your order has been placed successfully!`);
+      console.log(`Amount: Rs.${amount}`);
+      console.log(`Discount: Rs.${discount}`);
+      console.log(`Delivery Charge: Rs.${deliveryCharge}`);
+      console.log(`Payable Amount: Rs.${payableAmount}`);
+      console.log(`Delivery Time: ${deliveryTime} Days`);
+    }
+
+    placeOrder(12000, 15, false);
+
+  </script>
+</body>
+</html>
