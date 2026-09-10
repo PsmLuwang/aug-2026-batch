@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    const employees = [ 
+      { name: "John", basicSalary: 30000, absentDays: 2 }, 
+      { name: "David", basicSalary: 45000, absentDays: 4 }, 
+      { name: "Sarah", basicSalary: 60000, absentDays: 0 } 
+    ];
+
+    function calculatePayroll(employees = []) {
+      const cashFormat = (amt) => Number((amt).toFixed(2));
+
+      const updatedEmployees = [];
+      let totalPayroll = 0;
+
+      for (let i = 0; i < employees.length; i++) {
+        const dailySalary = cashFormat(employees[i].basicSalary / 26);
+        const salaryDeduction = cashFormat(dailySalary * employees[i].absentDays);
+        const netSalary = cashFormat(employees[i].basicSalary - salaryDeduction);
+        const bonusPercent = employees[i].absentDays == 0 ? 10
+          : employees[i].absentDays <= 2 ? 5
+          : employees[i].absentDays <= 4 ? 2
+          : 0
+        ;
+        const bonus = cashFormat(employees[i].basicSalary * bonusPercent/100);
+        const finalSalary = netSalary + bonus;
+        const category = finalSalary >= 50000 ? "Executive"
+          : finalSalary >= 35000 ? "Senior"
+          : finalSalary >= 20000 ? "Regular"
+          : "Junior"
+        ;
+
+        updatedEmployees.unshift({ 
+          name: employees[i].name, 
+          basicSalary: employees[i].basicSalary, 
+          absentDays: employees[i].absentDays, 
+          dailySalary, 
+          salaryDeduction, 
+          netSalary, 
+          bonus, 
+          finalSalary, 
+          category 
+        });
+
+        totalPayroll += finalSalary;
+      }
+
+      return { 
+        employees: updatedEmployees,
+        totalPayroll
+      }
+    }
+
+
+    console.log(calculatePayroll(employees));
+  </script>
+</body>
+</html>

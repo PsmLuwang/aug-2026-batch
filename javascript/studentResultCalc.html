@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    const name = "John";
+    const marks = [60, 40, 56, 87, 92];
+
+    console.log(calculateResult(name, marks));
+
+    function calculateResult(name, marks = []) {
+      const total = marks.reduce((acc, curr) => acc + curr, 0);
+      const average = total/marks.length;
+      const grade = average >= 90 ? "A+"
+        : average >= 80 ? "A"
+        : average >= 70 ? "B"
+        : average >= 60 ? "C"
+        : average >= 50 ? "D"
+        : "E"
+      ;
+      const result = marks.some(mark => mark < 40) ? "Fail" : "Pass";
+
+      return { name, total, average, grade, result };
+    }
+
+  </script>
+</body>
+
+</html>
