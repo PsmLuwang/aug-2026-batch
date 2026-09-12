@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script type="module">
+    import orders from "../orders.js"
+
+    // {
+    //   customer: "John",
+    //   membership: "Gold",
+    //   items: [
+    //     { name: "Laptop", price: 60000, quantity: 1, lineTotal: 0, },
+    //     { name: "Mouse", price: 1000, quantity: 2 },
+    //     { name: "Keyboard", price: 2500, quantity: 1 }
+    //   ],
+    //   
+    //  subTotal: 0,
+    //  totalDiscountPercent: 0,
+    //  totalDiscount: 0,
+    //  amountAfterDiscount: 0,
+    //  shippingCharge: 0,
+    //  gst: 0,
+    //  payableAmount: 0,
+    //  category: "Gold",
+    // }
+
+
+    // {
+    //   customer: "John",
+    //   membership: "Gold",
+    //   items: [
+    //     { name: "Laptop", price: 60000, quantity: 1 },
+    //     { name: "Mouse", price: 1000, quantity: 2 },
+    //     { name: "Keyboard", price: 2500, quantity: 1 }
+    //   ]
+    // },
+    
+    function processOrders(orders) {
+
+      const ordersDetails = orders.map(order => {
+        const items = order.items.map(item => (
+          {...item, lineTotal: item.price * item.quantity}
+        ))
+        const subTotal = items.reduce((acc, item) => acc + item.lineTotal, 0)
+        const totalDiscountPercent = (
+          order.membership == "Gold" ? 15 
+          : order.membership == "Silver" ? 10
+          : 5
+        ) + (subTotal >= 50000 ? 5 : 0);
+        const totalDiscount = subTotal * totalDiscountPercent / 100;
+        const amountAfterDiscount = subTotal - totalDiscount;
+        const shippingCharge = amountAfterDiscount >= 50000 ? 0
+          : amountAfterDiscount >= 20000 ? 500
+          : 1000
+        ;
+        const gst = amountAfterDiscount * 18 / 100;
+        const payableAmount = amountAfterDiscount + shippingCharge + gst;
+        const category = payableAmount >= 60000 ? "Platinum"
+          : payableAmount >= 30000 ? "Gold"
+          : payableAmount >= 15000 ? "Silver"
+          : "Regular"
+        ;
+
+        return {
+          ...order,
+          items,
+          subTotal,
+          totalDiscountPercent,
+          totalDiscount,
+          amountAfterDiscount,
+          shippingCharge,
+          gst,
+          payableAmount,
+          category
+        }
+      })
+
+      const highestOrder = ordersDetails.sort((a, b) => b.payableAmount - a.payableAmount)[0]
+      
+      let expensiveItem = {};
+      ordersDetails.forEach(order => {
+        order.items.forEach(item => 
+          expensiveItem = (expensiveItem.price || 0) < item.price ? {name: item.name, price: item.price} : expensiveItem
+        )
+      });
+
+      const totalRevenue = ordersDetails.reduce((acc, order) => acc + order.payableAmount, 0)
+      const averageOrderValue = totalRevenue / ordersDetails.length;
+
+      const countCategory = ordersDetails.reduce((acc, order) => {
+        acc[order.category] = (acc[order.category] || 0) + 1
+        return acc;
+      }, {})
+      
+
+      return {
+        highestOrder,
+        expensiveItem,
+        totalRevenue,
+        averageOrderValue,
+        countCategory,
+        ordersDetails
+      };
+    }
+
+    console.log(processOrders(orders));
+  </script>
+</body>
+</html>
