@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    // 1. Spread ...
+    // const person = {
+    //   name: "Jackson",
+    //   gender: "Male"
+    // }
+
+    // const contact = {
+    //   phone: "1234567890",
+    //   email: "jackson@gmail.com"
+    // }
+  
+    // const updatedPerson = {
+    //   ...person,
+    //   ...contact,
+    //   name: "Priyansu"
+    // }
+
+    // console.log(updatedPerson);
+
+    // const nums = [1, 2, 3, 4, 5];
+    // const nums2 = [6, 7, 8, 9, 10];
+
+    // // console.log(...nums);
+
+    // const newNums = [...nums, ...nums2];
+
+    // console.log(newNums);
+
+
+    // Rest ...
+
+    // function fun1(a, b, ...nums) {
+    //   console.log(a);
+    //   console.log(b);
+    //   console.log(nums);
+    // }
+
+    // // fun1(1, 2, 3, 4);
+
+    // const nums = [1, 2, 3, 4, 5];
+    // const [a, b, ...rest] = nums;
+    // console.log(rest);
+
+    // const student = {
+    //   name: "Priyansu",
+    //   age: 23,
+    //   subject: "MERN",
+    //   phone: "1234567890",
+    //   email: "priyansu@gmail.com"
+    // }
+
+    // const { name, age, ...rest } = student;
+    // console.log(name);
+    // console.log(age);
+    // console.log(rest);
+    
+    
+    // 3. Hoisting
+    // console.log(username);
+    
+    // var username = "Jackson";
+
+    /// 
+    // var username;
+    // console.log(username);
+    // username = "Jackson";
+    
+
+    ///
+    // var username;
+    // console.log(username);
+
+    // TDZ = Temporal Dead Zone ///////////////
+    // console.log(username);
+    
+    // let username = "Jackson";
+
+    ///
+    // let username;
+    // console.log(username);
+    // username = "Jackson";
+
+    // const is same as let (hoistiog)
+
+
+    // console.log(student);
+
+    // function fun() {
+    //   // ---- var
+    //   if (true) {
+    //     /// ------ let
+    //     console.log(student);
+    //     var student;
+        
+    //   }
+    // }
+    
+
+    // fun();
+    // function greeting() {
+    //   console.log("Hello!"); 
+    // }
+
+    // greeting();
+
+
+
+    // Q & A
+    // 1
+    
+    // var num = "20";
+    // function number(params) {
+
+    //   var num;
+    //   console.log(num);
+
+    //   num = "10"
+    //   console.log(num);
+    // }
+    
+    // number();
+
+
+
+    
+
+
+
+    
+
+    
+    let a = 10;
+
+    function aaaa() {
+      var a;
+      console.log(a);
+      a = 20
+      if (true) {
+        a = 50;
+        console.log(a);
+      }
+      console.log(a);
+      
+    }
+    
+    aaaa();
+    
+    
+    
+    
+  </script>
+</body>
+</html>
