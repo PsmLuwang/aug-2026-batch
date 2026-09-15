@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    // 1. Callbacks
+    // function mainFun(callback) {
+    //   console.log("MainFun");
+    //   callback();
+    // }
+
+    // function fun1() {
+    //   console.log("Fun1");
+    // }
+
+    // mainFun(fun1);
+
+
+
+    // 2. Lexical Scope
+    // let num = 10;
+
+    // function inner() {
+    //   console.log(num);
+    // }
+
+    // function outer() {
+    //   let num = 20;
+
+    //   inner();
+    // }
+
+    // outer();
+
+
+
+    // 3. Closures
+    // function createCounter() {
+    //   let count = 0;
+
+    //   function test() {
+    //     count++;
+    //     return count;
+    //   }
+
+    //   return test;
+    // }
+
+    // const counter = createCounter();
+    // const counter1 = createCounter();
+
+    // console.log("counter", counter()); // 1
+    // console.log("counter", counter()); // 2
+    // console.log("counter", counter()); // 3
+
+    // console.log("");
+    
+    // console.log("counter1", counter1()); // 1
+    // console.log("counter1", counter1()); // 2
+    // console.log("counter1", counter1()); // 3
+
+
+
+
+    // Example 1 // Closure
+    function bankAccount() {
+      let balance = 0;
+
+      return {
+        getBalance() {
+          return balance;
+        },
+        deposit(amount) {
+          balance += amount;
+        },
+        withdraw(amount) {
+          balance -= amount;
+        }
+      }
+    }
+
+    const johnsAccount = bankAccount(); 
+    const maxsAccount = bankAccount(); 
+
+    johnsAccount.deposit(1000);
+    console.log(johnsAccount.getBalance());
+    
+    johnsAccount.withdraw(350);
+    console.log(johnsAccount.getBalance());
+
+    // max
+    maxsAccount.deposit(500);
+    console.log(maxsAccount.getBalance());
+    
+    maxsAccount.withdraw(50);
+    console.log(maxsAccount.getBalance());
+
+
+
+    // const obj = {
+    //   name: "John",
+    //   phone: "1234567890",
+    //   email: "john@gmail.com"
+    // }
+
+    // console.log(Object.keys(obj));
+    // console.log(Object.values(obj));
+    
+
+    
+    
+    
+
+    
+
+
+
+  </script>
+</body>
+</html>
