@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+    
+    // 1. this 
+    function Person(name, age, gender) {
+      this.name = name,
+      this.age = age,
+      this.gender = gender
+    }
+
+    Person.prototype.getName = function() {
+      console.log(this.name);
+    }
+    Person.prototype.getAge = function() {
+      console.log(this.name);
+    }
+
+    const person1 = new Person("Jack", 25, "Male");
+    console.log(person1);
+
+    console.log(person1.__proto__ == Person.prototype);
+    
+
+//////////////////////////
+    // const obj = {
+    //   name: "Test Name",
+    // }
+    // const obj2 = {
+    //   name: "Test Name",
+    // }
+
+    // obj.__proto__.testFun = function () {
+    //   console.log("something");
+    // }
+    // obj2.__proto__.testFun = function () {
+    //   console.log("something");
+    // }
+
+    // obj.testFun()
+    
+    
+    
+
+  </script>
+</body>
+</html>
