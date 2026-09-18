@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+    class Person {
+
+      constructor(name, age, gender) {
+        this.name = name,
+        this.age = age,
+        this.gender = gender
+      }
+
+      getName() {
+        console.log(this.name);
+      }
+      getAge() {
+        console.log(this.age);
+      }
+      getGender() {
+        console.log(this.gender);
+      }
+
+
+      setName(name) {
+        this.name = name
+      }
+      setAge(age) {
+        this.age = age
+      }
+      setGender(gender) {
+        this.gender = gender
+      }
+
+    }
+
+    const person1 = new Person("Jack", 25, "Male");
+    console.log(person1);
+    // person1.setObj("Jack", 25, "Male");
+    
+
+
+    person1.getName();
+    person1.getAge();
+    person1.getGender();
+
+    person1.setName("Alex");
+    person1.setAge(35);
+
+    console.log(person1);
+
+
+    class Cart {
+      constructor(orderId, items = []) {
+        this.orderId = orderId,
+        this.items = items
+      }
+
+      getTotalAmount() {
+        return this.items.reduce((acc, item) => acc += item.price * item.qty, 0)
+      }
+    }
+
+    const items = [
+      {
+        name: "Item 1",
+        price: 100,
+        qty: 2
+      },
+      {
+        name: "Item 2",
+        price: 200,
+        qty: 3
+      },
+      {
+        name: "Item 3",
+        price: 300,
+        qty: 4
+      }
+    ]
+    
+    const cart1 = new Cart("01", items);
+    const total = cart1.getTotalAmount();
+    console.log(total);
+    
+    
+     
+    
+  </script>
+</body>
+</html>
