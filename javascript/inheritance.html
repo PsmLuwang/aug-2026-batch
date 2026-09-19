@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <script>
+    // Parent Class
+    class User {
+      constructor(name, role, phone) {
+        this.name = name,
+        this.role = role,
+        this.phone = phone
+      }
+
+      login() {
+        console.log(`Login`);
+      }
+
+      getPublicData() {
+        console.log(`Get Public Data`);
+      }
+    }
+
+    // Child Class
+    class Manager extends User {
+
+      constructor(name, role, phone, email) {
+        super(name, role, phone);
+        super.getPublicData()
+        
+        this.email = email
+      }
+
+      manageUsers() {
+        console.log(`Manage Users`);
+      }
+
+    }
+
+    class Admin extends Manager {
+
+      constructor(name, role, phone, email, adminId) {
+        super(name, role, phone, email);
+        this.adminId = adminId
+      }
+      
+      uploadData() {
+        console.log(`Upload Data`);
+      }
+
+      removeData() {
+        console.log(`Remove Data`);
+      }
+
+    }
+
+
+    const user1 = new User("Alex", "Guest", "1234567890");
+    const manager1 = new Manager("Ibomcha", "Manager", "1234567890", "ibomcha@gmail.com");
+    const admin1 = new Admin("Messi", "Admin", "1234567890", "messi@gmail.com", "Admin-01");
+    
+    
+    
+  </script>
+  
+</body>
+</html>
