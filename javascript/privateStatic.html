@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+
+    class Account {
+      #balance = 0;
+      static numOfUsers = 0;
+      static numOfTransactions = 0;
+
+      constructor(name, accountNo) {
+        this.name = name
+        this.accountNo = accountNo
+        Account.numOfUsers++;
+      }
+
+      static #isAmountValid(amount) {
+        return amount >= 0;
+      }
+
+      static #isBalanceSufficient(balance, amount) {
+        return balance >= amount;
+      }
+
+
+      deposit(amount) {
+        if (Account.#isAmountValid(amount)) {
+          this.#balance += amount;
+
+          Account.numOfTransactions++;
+        } else {
+          console.log("Invalid amount.");
+        }
+      }
+
+      getBalance() {
+        // is the user verified
+        console.log(`Available balance = ${this.#balance}`);
+      }
+
+      withdraw(amount) {
+        if (Account.#isAmountValid(amount) && Account.#isBalanceSufficient(this.#balance, amount)) {
+          this.#balance -= amount;
+          Account.numOfTransactions++;
+        } else {
+          console.log("Invalid amount.");
+        }
+      }
+    }
+
+    const aman = new Account("Aman", "1234567890");
+    const max = new Account("Max", "0987654321");
+    
+    // aman.deposit(1000);
+    // aman.withdraw(500);
+    // aman.withdraw(5000);
+    // aman.getBalance();
+    // aman.withdraw(230);
+    // aman.getBalance();
+
+    // max.deposit(5500);
+    // max.withdraw(1300);
+    // max.withdraw(2000);
+    // max.getBalance();
+
+
+    // console.log("Number of Users =", Account.numOfUsers);
+    // console.log("Number of Transactions =", Account.numOfTransactions);
+    
+  </script>
+</body>
+</html>
