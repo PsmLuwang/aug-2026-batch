@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+
+  <div id="container">
+    
+  </div>
+
+  <script>
+    const container = document.getElementById("container");
+    // container.innerHTML += '<h1 class="text-xl font-bold p-4">Salam Priyansu Meitei</h1>';
+    // container.innerHTML += '<h1 class="text-xl font-bold p-4">John</h1>';
+    // container.innerHTML += '<h1 class="text-xl font-bold p-4">Max</h1>';
+    // container.innerHTML += '<h1 class="text-xl font-bold p-4">Johnson</h1>';
+
+    const people = ["Priyansu", "Messi", "Ronaldo", "Tomba", "Chaoba", "Prity"]
+    // for (let i = 0; i < people.length; i++) {
+    //   container.innerHTML += `
+    //     <h1 class="text-xl font-bold p-4"> ${i+1}. ${people[i]}</h1>
+    //   `;
+    // }
+
+    people.forEach((person, i) => {
+      container.innerHTML += `
+        <h1 class="text-xl font-bold p-4"> ${i+1}. ${person}</h1>
+      `;
+    })
+  </script>
+  
+</body>
+</html>
