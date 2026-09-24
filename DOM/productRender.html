@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-gray-100">
+
+  <section id="container" class="p-5 grid grid-cols-4 gap-3">
+    
+  </section>
+  
+
+  <script type="module">
+    import { products } from "./productInfo.js"
+
+    const container = document.getElementById("container");
+
+    products.forEach(product => {
+      container.innerHTML += `
+        <div class="bg-white p-4 border border-gray-300 shadow-md rounded-2xl max-w-100 space-y-4">
+          <div class="relative rounded-md overflow-hidden">
+            ${product.isFeatured ? `<span class="absolute right-4 top-3 bg-red-400 text-white px-2 py-0.5 text-xs rounded-full font-medium">New</span>` : ""}
+            <img class="h-80 w-full object-cover" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQc3BRZ3d9XQlDhoPbAeZ-gKeqk7XgUIWpZF9R7HkL8A&s=10" alt="Img">
+            <div class="absolute bottom-0 left-0 right-0 bg-linear-to-t from-black/60 to-white/0 p-4 -space-y-1 pt-6">
+              <h1 class="text-white font-bold">${product.brand.toUpperCase()}</h1>
+              <p class="text-white text-xs">${product.rating} ⭐ (${product.reviews} reviews)</p>
+            </div>
+          </div>
+
+          <div class="space-y-2">
+            <div class="flex justify-between">
+              <div>
+                <h1 class="text-lg font-semibold">${product.name}</h1>
+                <p class="text-sm text-gray-400 font-medium">${product.category}</p>
+              </div>
+              <div>
+                <h4 class="text-lg font-semibold">₹${product.price - product.discount}</h4>
+                <p class="text-sm font-medium text-gray-400 line-through text-right">₹${product.price}</p>
+              </div>
+            </div>
+      
+            <p class="text-gray-600 text-sm line-clamp-1">${product.description}</p>
+      
+            <div>
+              <h4 class="mb-1 text-sm font-medium text-gray-600">Size</h4>
+              <div class="flex gap-2">
+                ${product.stocks.map(size => (
+                  `<span class="cursor-default ${size.stock == 0 ? "bg-gray-200 text-gray-400 cursor-not-allowed" : "bg-gray-100"}  size-8 grid place-content-center font-semibold rounded-full border border-gray-300">
+                    ${size.size}
+                  </span>`
+                )).join("")}
+              </div>
+            </div>
+            
+            <div>
+              <h4 class="mb-1 text-sm font-medium text-gray-600">Colour</h4>
+              <div class="flex gap-2">
+                ${product.colors.map(color => (
+                  `<span style="background-color: ${color.split(" ").join("")}" class="bg-whitee border-gray-300 size-8 grid place-content-center font-semibold rounded-full border"></span>`
+                )).join("")}
+              </div>
+            </div>
+      
+            <div class="flex gap-1 pt-2">
+              ${product.tags.map(tag => (
+                `<span class="bg-gray-100 border border-gray-300 rounded-full px-2 text-xs text-gray-600">${tag}</span>`
+              )).join("")}
+            </div>
+
+            <button class="bg-gray-900 text-white text-sm font-medium rounded-md w-full h-10 mt-3">
+              Add to cart
+            </button>
+          </div>
+        </div>
+      `
+    });
+    
+  </script>
+</body>
+</html>
