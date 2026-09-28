@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body>
+
+  <main class="grid grid-cols-2 gap-4">
+    <section id="container" class="p-4 grid gap-3">  
+    </section>
+  
+    <section class="p-4 flex gap-3 flex-col">
+      <h1 class="text-xl font-bold">My Cart</h1>
+      <div id="myCart" class="grid gap-2">
+        
+      </div>
+
+      <div id="total">
+        <p>Total Amount : $0</p>
+        <p>Total Quantity : 0</p>
+      </div>
+    </section>
+  </main>
+
+
+  <script>
+    const products = [
+      {
+        id: "1",
+        name: "iPhone 18",
+        price: 999
+      },
+      {
+        id: "2",
+        name: "Samsung Galaxy S26",
+        price: 899
+      },
+      {
+        id: "3",
+        name: "Google Pixel 10",
+        price: 799
+      },
+      {
+        id: "4",
+        name: "OnePlus 14",
+        price: 699
+      },
+      {
+        id: "5",
+        name: "Xiaomi 16",
+        price: 599
+      },
+      {
+        id: "6",
+        name: "MacBook Air M4",
+        price: 1099
+      },
+      {
+        id: "7",
+        name: "Dell XPS 15",
+        price: 1299
+      },
+      {
+        id: "8",
+        name: "HP Spectre x360",
+        price: 1199
+      },
+      {
+        id: "9",
+        name: "Lenovo ThinkPad X1",
+        price: 1399
+      },
+      {
+        id: "10",
+        name: "ASUS ROG Zephyrus",
+        price: 1599
+      },
+      {
+        id: "11",
+        name: "Sony WH-1000XM6",
+        price: 399
+      },
+      {
+        id: "12",
+        name: "Apple AirPods Pro 3",
+        price: 249
+      },
+      {
+        id: "13",
+        name: "Samsung Galaxy Buds 4",
+        price: 179
+      },
+      {
+        id: "14",
+        name: "Apple Watch Series 11",
+        price: 429
+      },
+      {
+        id: "15",
+        name: "Samsung Galaxy Watch 8",
+        price: 349
+      },
+      {
+        id: "16",
+        name: "iPad Pro M5",
+        price: 1099
+      },
+      {
+        id: "17",
+        name: "Samsung Galaxy Tab S11",
+        price: 799
+      },
+      {
+        id: "18",
+        name: "Sony PlayStation 6",
+        price: 599
+      },
+      {
+        id: "19",
+        name: "Xbox Series X",
+        price: 499
+      },
+      {
+        id: "20",
+        name: "Nintendo Switch 2",
+        price: 449
+      },
+      {
+        id: "21",
+        name: "GoPro Hero 14",
+        price: 499
+      }
+    ];
+    
+    const container = document.getElementById("container");
+    products.forEach(product => {
+      container.innerHTML += `
+        <div class="p-4 border border-gray-300 flex justify-between items-start">
+          <div>
+            <h1 class="text-xl font-bold">${product.name}</h1>
+            <p class="text-lg font-semibold">$${product.price}</p>
+          </div>
+          <button onClick="addToCart('${product.id}')" class="bg-blue-400 py-2 px-5">Add to Cart</button>
+        </div>
+      `;
+    });
+
+    const cart = [];
+    const myCart = document.getElementById("myCart");
+    const total = document.getElementById("total");
+    function addToCart(id) {
+      const product = products.find(product => product.id == id);
+      cart.push(product);
+
+      myCart.innerHTML = '';
+      cart.forEach(item => {
+        myCart.innerHTML += `
+          <div class="p-4 border border-gray-300 flex justify-between items-start">
+            <h1>${item.name}</h1>
+            <p>$${item.price}</p>
+          </div>
+        `;
+      })
+
+      const totalAmount = cart.reduce((acc, item) => acc += item.price, 0);
+      total.innerHTML = `
+        <p>Total Amount : $${totalAmount}</p>
+        <p>Total Quantity : ${cart.length}</p>
+      `;
+    }
+  
+
+    // [1]
+    // [1, 1]
+    // [1, 1, 1]
+  </script>
+</body>
+
+</html>
