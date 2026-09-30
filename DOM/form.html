@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+  
+  <form id="registrationForm" class="bg-gray-100 p-5">
+    <input 
+      id="name"
+      name="name"
+      class="bg-white border border-gray-300 p-2" 
+      type="text"
+      placeholder="Enter your name"
+      required
+    />
+
+    <input 
+      id="email"
+      name="email"
+      class="bg-white border border-gray-300 p-2" 
+      type="email"
+      placeholder="Enter your email"
+      required
+    />
+
+    <button
+      class="bg-blue-400 p-2 px-5 text-white" 
+      type="submit" 
+    >
+      Submit
+    </button>
+
+  <!-- <input 
+    class="bg-blue-400 p-2 px-5 text-white" 
+    type="submit" 
+    value="Register"
+  /> -->
+  </form>
+
+  <section id="display" class="bg-gray-100 p-5 mt-1 grid gap-3">
+    
+  </section>
+
+
+  <script>
+    const registrationForm = document.getElementById("registrationForm");
+    const display = document.getElementById("display");
+    const members = [];
+
+    registrationForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const newMember = {
+        name: e.target.name.value,
+        email: e.target.email.value,
+      }
+
+      members.unshift(newMember);
+
+      displayMembers();
+
+      registrationForm.reset();
+    })
+
+
+    function displayMembers() {
+      display.innerHTML = '';
+      members.forEach(member => {
+        display.innerHTML += `
+          <div class="bg-white p-4 shadow-md border border-gray-300">
+            <h1 class="font-bold">${member.name}</h1>
+            <p class="text-gray-500 text-sm">${member.email}</p>
+          </div>
+        `;
+      });
+    }
+
+    
+  </script>
+</body>
+</html>

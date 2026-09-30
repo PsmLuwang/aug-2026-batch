@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+  <!-- <button id="btn1">Button 1</button> -->
+
+  <!-- <button id="btn2">Button 2</button> -->
+
+  <div id="parent" class="m-5 p-5 bg-red-400">
+    <button id="child" class="p-3 bg-green-400">Button</button>
+  </div>
+
+  <script>
+    const parent = document.getElementById("parent");
+    const child = document.getElementById("child");
+
+    child.addEventListener("click", (e) => {
+      console.log(e);
+    })
+
+    // child.addEventListener("click", () => {
+    //   console.log("child");
+    //   console.log("child");
+    //   console.log("child");
+    //   console.log("child");
+    //   console.log("child");
+    // }, { passive: true })
+
+
+    // parent.addEventListener("click", () => {
+    //   console.log("parent");
+    // }, { capture: true})
+
+    // child.addEventListener("click", () => {
+    //   console.log("child");
+    // })
+
+    // window -> document -> html -> body -> parent -> child
+    // window <- document <- html <- body <- parent <- child
+    
+
+
+    // child.addEventListener("click", () => {
+    //   console.log("Clicked once");
+    // }, { once: true })
+
+    
+
+
+
+
+    // const btn1 = document.getElementById("btn1");
+    // btn1.onclick = () => {
+    //   console.log("Event Handler 1");
+    // }
+    // btn1.onclick = () => {
+    //   console.log("Event Handler 2");
+    // }
+
+    // const btn2 = document.getElementById("btn2");
+    // btn2.addEventListener("click", () => {
+    //   console.log("EventListener 1");
+    // })
+    // btn2.addEventListener("click", () => {
+    //   console.log("EventListener 2");
+    // })
+
+  </script>
+</body>
+</html>
