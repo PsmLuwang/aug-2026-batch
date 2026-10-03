@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    // localStorage -> setItem, getItem, removeItem, clear, key, length
+
+    // localStorage.setItem("name", "Salam");
+    // localStorage.removeItem("name");
+
+    // localStorage.setItem("name1", "Salam");
+    // localStorage.setItem("name2", "Priyansu");
+    // localStorage.setItem("name3", "Meitei");
+    
+    // const fullName = `${localStorage.getItem("name1")} ${localStorage.getItem("name2")} ${localStorage.getItem("name3")}`;
+    // console.log(fullName);
+    
+    // localStorage.clear();
+
+    // console.log(localStorage.key(0));
+    // console.log(localStorage.key(1));
+    // console.log(localStorage.key(2));
+    
+
+
+    // console.log(localStorage.length);
+    // console.log(typeof(parseFloat(localStorage.getItem("name3"))));
+    
+
+    // for (let i = 0; i < localStorage.length; i++) {
+
+    //   const key = localStorage.key(i);
+    //   const value = localStorage.getItem(key);
+
+    //   console.log(`${key}: ${value}`);
+      
+    // }
+    
+    localStorage.clear();
+
+    const person = {
+      name: "Priyansu",
+      phone: "1234567890",
+      email: "spriaynsu@gmail.com"
+    }
+
+    localStorage.setItem("person", JSON.stringify(person));
+    const value = JSON.parse(localStorage.getItem("person"));
+    
+    console.log(value)
+
+
+  </script>
+</body>
+</html>
