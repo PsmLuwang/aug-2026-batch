@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-gray-100">
+  
+  <form onsubmit="getUserById(event)" class="p-4 bg-white">
+    <input 
+      id="userId"
+      name="userId"
+      placeholder="Enter user ID"
+      class="border border-gray-300 h-10 px-3"
+      type="number" 
+      required
+    />
+    <button
+      class="bg-blue-400 w-30 h-10 text-white" 
+      type="submit"
+    >
+      Find
+    </button>
+  </form>
+
+  <section id="display" class="p-4">
+    
+  </section>
+
+
+  <script>
+    // fetch -> GET Method
+    async function getUserById(e) {
+      e.preventDefault();
+      const id = e.target.userId.value;
+
+      const response = await fetch(`https://api.freeapi.app/api/v1/public/randomusers/${id}`);
+      const data = await response.json();
+      
+      const user = data.data;
+      const display = document.getElementById("display");
+      display.innerHTML = `
+        <div class="bg-white border border-gray-300 p-4 flex gap-3 max-w-120">
+          <img 
+            src=${user?.picture?.large} 
+            alt="profile" 
+          />
+
+          <div>
+            <h1 class="font-bold">${user.name.title}. ${user.name.first} ${user.name.last}</h1>
+            <p class="font-medium text-gray-600">${user.email}</p>
+            <p class="text-sm text-gray-500">@${user.login.username}</p>
+          </div>
+        </div>
+      `;
+
+    }
+    
+  </script>
+</body>
+</html>
