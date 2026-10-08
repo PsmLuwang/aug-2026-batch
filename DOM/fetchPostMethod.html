@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+
+  <form onsubmit="createStudent(event)" class="border border-gray-300 bg-gray-5S0 m-4 p-4 space-y-4 max-w-100">
+    <div class="grid gap-2">
+      <label for="name">Student name</label>
+      <input 
+        id="name"
+        name="name"
+        class="border border-gray-300 h-10 px-3 bg-white"
+        placeholder="Name"
+        required
+        type="text" 
+      />
+    </div>
+
+    <div class="grid gap-2">
+      <label for="name">Phone</label>
+      <input 
+        id="phone"
+        name="phone"
+        class="border border-gray-300 h-10 px-3 bg-white"
+        placeholder="Phone"
+        required
+        type="text" 
+      />
+    </div>
+
+    <div class="grid gap-2">
+      <label for="name">Standard</label>
+      <input 
+        id="standard"
+        name="standard"
+        class="border border-gray-300 h-10 px-3 bg-white"
+        placeholder="Standard"
+        required
+        type="text" 
+      />
+    </div>
+
+    <button type="submit" class="bg-blue-400 h-10 px-5 text-white">
+      Create new student
+    </button>
+  </form>
+
+  <button onclick="getAllStudents()" class="bg-green-400 h-10 px-5 text-white mx-8">
+    Display all students
+  </button>
+
+
+  <section id="display" class="p-4 grid gap-3">
+    
+  </section>
+  
+
+  <script>
+
+    async function createStudent(e) {
+
+      try {
+        e.preventDefault();
+        const student = {
+          name: e.target.name.value,
+          phone: e.target.phone.value,
+          standard: e.target.standard.value
+        } 
+
+        const response = await fetch(`http://localhost:5000/createStudent`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(student)
+        })
+
+        const data = await response.json();
+        const newStudent = data.student;
+
+        const display = document.getElementById("display");
+        display.innerHTML = `
+          <div class="border border-gray-300 p-4 max-w-100">
+            <h1 class="text-xl font-semibold">${newStudent.name}</h1>
+            <p class="text-sm font-medium text-gray-600 mb-3">ID: ${newStudent.id}</p>
+
+            <p>Phone: ${newStudent.phone}</p>
+            <p>Standard: ${newStudent.standard}</p>
+          </div>
+        `;
+
+        e.target.reset();
+      } catch (error) {
+        console.log(error);
+      }
+
+    }
+
+
+    async function getAllStudents() {
+      try {
+        const response = await fetch(`http://localhost:5000/getStudents`);
+        const data = await response.json();
+        const students = data.students;
+
+        const display = document.getElementById("display");
+        display.innerHTML = ``;
+        students.forEach(student => {
+          display.innerHTML += `
+            <div class="border border-gray-300 p-4 max-w-100">
+              <h1 class="text-xl font-semibold">${student.name}</h1>
+              <p class="text-sm font-medium text-gray-600 mb-3">ID: ${student.id}</p>
+
+              <p>Phone: ${student.phone}</p>
+              <p>Standard: ${student.standard}</p>
+            </div>
+          `;
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+  </script>
+</body>
+</html>
