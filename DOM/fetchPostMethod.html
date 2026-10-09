@@ -50,6 +50,61 @@
     </button>
   </form>
 
+
+  <form onsubmit="updateStudent(event)" class="border border-gray-300 bg-gray-5S0 m-4 p-4 space-y-4 max-w-100">
+    <div class="grid gap-2">
+      <label for="name">Student ID</label>
+      <input 
+        id="id"
+        name="id"
+        class="border border-gray-300 h-10 px-3 bg-white"
+        placeholder="Student ID"
+        required
+        type="text" 
+      />
+    </div>
+
+    <div class="grid gap-2">
+      <label for="name">Student name</label>
+      <input 
+        id="name"
+        name="name"
+        class="border border-gray-300 h-10 px-3 bg-white"
+        placeholder="Name"
+        required
+        type="text" 
+      />
+    </div>
+
+    <div class="grid gap-2">
+      <label for="name">Phone</label>
+      <input 
+        id="phone"
+        name="phone"
+        class="border border-gray-300 h-10 px-3 bg-white"
+        placeholder="Phone"
+        required
+        type="text" 
+      />
+    </div>
+
+    <div class="grid gap-2">
+      <label for="name">Standard</label>
+      <input 
+        id="standard"
+        name="standard"
+        class="border border-gray-300 h-10 px-3 bg-white"
+        placeholder="Standard"
+        required
+        type="text" 
+      />
+    </div>
+
+    <button type="submit" class="bg-blue-400 h-10 px-5 text-white">
+      Update student
+    </button>
+  </form>
+
   <button onclick="getAllStudents()" class="bg-green-400 h-10 px-5 text-white mx-8">
     Display all students
   </button>
@@ -101,6 +156,40 @@
 
     }
 
+
+
+    async function updateStudent(e) {
+
+      try {
+        e.preventDefault();
+        const student = {
+          id: e.target.id.value,
+          name: e.target.name.value,
+          phone: e.target.phone.value,
+          standard: e.target.standard.value
+        } 
+
+        const response = await fetch(`http://localhost:5000/replaceStudent`, {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(student)
+        })
+
+        const data = await response.json();
+        console.log(data.students);
+        
+        getAllStudents();
+
+        e.target.reset();
+      } catch (error) {
+        console.log(error);
+      }
+
+    }
+
+    // 1791558048345
 
     async function getAllStudents() {
       try {

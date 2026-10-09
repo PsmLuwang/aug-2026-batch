@@ -5,7 +5,7 @@ const app = express();
 app.use(cors());
 app.use(express.json()); 
 
-const students = [];
+let students = [];
 
 // POST Method // http://localhost:5000/createStudent
 app.post("/createStudent", (req, res) => {
@@ -17,6 +17,27 @@ app.post("/createStudent", (req, res) => {
       success: true,
       message: "Created New Student",
       student: student
+    })
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message || "Invalid Data" })
+  }
+})
+
+
+// PUT Method // http://localhost:5000/replaceStudent
+app.put("/replaceStudent", (req, res) => {
+  try {
+    const updatedStudent = req.body;
+    const newStudentList = students.map(student => 
+      student.id == updatedStudent.id 
+      ? updatedStudent : student
+    );
+    students = newStudentList;
+    
+    res.status(200).json({
+      success: true,
+      message: "Student updated",
+      students: newStudentList
     })
   } catch (error) {
     res.status(500).json({ success: false, message: error.message || "Invalid Data" })
