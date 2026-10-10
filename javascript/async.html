@@ -7,36 +7,92 @@
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <body>
+
+  <div id="display">
+    <h1 class="text-8xl p-4 mx-auto mt-30 bg-green-400 size-32 rounded-full grid place-content-center">
+      10
+    </h1>
+  </div>
+
+  <div id="lapDisplay">
+    <h1 class="text-4xl font-bold p-4 mx-auto mt-10 bg-green-400 size-16 rounded-full grid place-content-center">
+      1
+    </h1>
+  </div>
+
+  <div id="resultDisplay">
+    
+  </div>
   
 
   <script>
 
-    async function test() {
-      console.log("line 1");
-      console.log("line 2");
+    const display = document.getElementById("display");
+    const resultDisplay = document.getElementById("resultDisplay");
+    const lapDisplay = document.getElementById("lapDisplay");
+    let count = 1;
+    let i = 10;
+    const interval = setInterval(() => {
+
+      display.innerHTML = `
+        <h1 class="
+          text-8xl p-4 mx-auto mt-30 size-32 rounded-full grid place-content-center
+          ${i <= 3 ? "bg-red-400" : "bg-green-400"}
+        ">
+          ${i}
+        </h1>
+      `;
+
+      if (count == 3 && i == 0) {
+        resultDisplay.innerHTML = `
+          <h1 class="text-center font-bold text-3xl text-red-400 mt-10">GAME OVER</h1>
+        `;
+        clearInterval(interval)
+      } else {
+        i--;
   
-      // async
-      await new Promise((resolve) => {
-        setTimeout( async () => {
-          console.log("line 3");
-          resolve();
-        }, 2000);
-      })
+        if (i < 0) {
+          count++;
+          lapDisplay.innerHTML = `
+            <h1 class="text-4xl font-bold p-4 mx-auto mt-10 bg-green-400 size-16 rounded-full grid place-content-center">
+              ${count}
+            </h1>        
+          `;
+          i = 10;
+        }
+      }
+
+      
+    }, 500)
+
+
+    // async function test() {
+    //   console.log("line 1");
+    //   console.log("line 2");
   
-      console.log("line 4");
-      console.log("line 5");
-    }
+    //   // async
+    //   await new Promise((resolve) => {
+    //     setTimeout( async () => {
+    //       console.log("line 3");
+    //       resolve();
+    //     }, 2000);
+    //   })
+  
+    //   console.log("line 4");
+    //   console.log("line 5");
+    // }
 
     // test();
 
-    setTimeout(() => {
-      console.log("setTimeout");
-    }, 1000);
+    // setTimeout(() => {
+    //   console.log("setTimeout");
+    // }, 1000);
     
-    setInterval(() => {
-      console.log("setInterval");
-    }, 2000);
+    // setInterval(() => {
+    //   console.log("setInterval");
+    // }, 2000);
     
+
 
   </script>
 </body>
