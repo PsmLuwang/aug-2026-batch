@@ -11,6 +11,7 @@ const NavBar = () => {
         <Link to="/cards">Cards</Link>
         <Link to="/props">Props</Link>
         <Link to="/hooks">Hooks</Link>
+        <Link to="/form">Form</Link>
       </div>
     </div>
   )

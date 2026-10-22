@@ -4,6 +4,7 @@ import HomePage from './pages/HomePage'
 import PropsPage from './pages/PropsPage'
 import HooksPage from './pages/HooksPage'
 import CardsPage from './pages/CardsPage'
+import FormPage from './pages/FormPage'
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
       <Route path='/cards' element={<CardsPage />} />
       <Route path='/hooks' element={<HooksPage />} />
       <Route path='/props' element={<PropsPage />} />
+      <Route path='/form' element={<FormPage />} />
 
     </Routes>
   )

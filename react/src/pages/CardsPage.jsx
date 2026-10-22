@@ -9,11 +9,11 @@ const CardsPage = () => {
     const getUsers = async () => {
       const response = await fetch(`https://api.freeapi.app/api/v1/public/randomusers?page=${page}&limit=10`)
       const data = await response.json();
-      setUsers(data.data.data);
+      setUsers(prev => [...prev, ...data.data.data]);
     }
     
     getUsers();
-  }, [])
+  }, [page])
   
   
   return (
