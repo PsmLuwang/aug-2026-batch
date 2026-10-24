@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react"
 import NavBar from "../components/NavBar"
+import { useGlobalStore } from "../stores/globalStore";
 
 const CardsPage = () => {
+  const { username, phone } = useGlobalStore(); // import global state
+
   const [users, setUsers] = useState([]);
   const [page, setPage] = useState(1);
 
@@ -19,6 +22,16 @@ const CardsPage = () => {
   return (
     <div>
       <NavBar />
+
+      {/* learn global state */}
+      <section className="m-5">
+        <h1>Username: {username}</h1>
+        <h1>Phone: {phone}</h1>
+      </section>
+
+
+
+
 
       <section>
         {

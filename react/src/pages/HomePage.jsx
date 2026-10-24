@@ -1,6 +1,7 @@
 import React from 'react'
 import NavBar from '../components/NavBar'
 import Topic from '../components/Topic';
+import { useGlobalStore } from '../stores/globalStore';
 
 const topics = [
   {
@@ -26,9 +27,34 @@ const topics = [
 ];
 
 const HomePage = () => {
+  const { setUsername } = useGlobalStore();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setUsername(e.target.username.value);
+  }
+
+
   return (
     <>
       <NavBar />
+
+      <section>
+        <form onSubmit={handleSubmit}>
+          <input 
+            id='username'
+            name='username'
+            type="text" 
+            required
+            placeholder='New username'
+            className='border'
+          />
+
+          <button type='submit' className='bg-blue-400'>
+            Update
+          </button>
+        </form>
+      </section>
       
       <section className='p-5 grid gap-3'>
         <h1 className='text-lg font-bold'>React Topics</h1>
