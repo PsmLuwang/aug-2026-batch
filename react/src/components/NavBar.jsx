@@ -12,6 +12,7 @@ const NavBar = () => {
         <Link to="/props">Props</Link>
         <Link to="/hooks">Hooks</Link>
         <Link to="/form">Form</Link>
+        <Link to="/axios">Axios</Link>
       </div>
     </div>
   )

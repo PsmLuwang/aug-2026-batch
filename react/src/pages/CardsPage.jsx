@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import NavBar from "../components/NavBar"
 import { useGlobalStore } from "../stores/globalStore";
+import { axiosInstance } from "../utils/axios";
 
 const CardsPage = () => {
   const { username, phone } = useGlobalStore(); // import global state
@@ -10,9 +11,12 @@ const CardsPage = () => {
 
   useEffect(() => {
     const getUsers = async () => {
-      const response = await fetch(`https://api.freeapi.app/api/v1/public/randomusers?page=${page}&limit=10`)
-      const data = await response.json();
-      setUsers(prev => [...prev, ...data.data.data]);
+      // const response = await fetch(`https://api.freeapi.app/api/v1/public/randomusers?page=${page}&limit=10`)
+      // const data = await response.json();
+      // setUsers(prev => [...prev, ...data.data.data]);
+
+      const response = await axiosInstance.get(`/api/v1/public/randomusers?page=${page}&limit=10`);
+      setUsers(prev => [...prev, ...response.data.data.data]);
     }
     
     getUsers();
