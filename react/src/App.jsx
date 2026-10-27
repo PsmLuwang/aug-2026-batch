@@ -6,6 +6,7 @@ import HooksPage from './pages/HooksPage'
 import CardsPage from './pages/CardsPage'
 import FormPage from './pages/FormPage'
 import AxiosPage from './pages/AxiosPage'
+import NewStudentPage from './pages/NewStudentPage'
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
       <Route path='/props' element={<PropsPage />} />
       <Route path='/form' element={<FormPage />} />
       <Route path='/axios' element={<AxiosPage />} />
+      <Route path='/newStudent' element={<NewStudentPage />} />
 
     </Routes>
   )

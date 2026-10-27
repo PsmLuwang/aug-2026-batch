@@ -13,6 +13,7 @@ const NavBar = () => {
         <Link to="/hooks">Hooks</Link>
         <Link to="/form">Form</Link>
         <Link to="/axios">Axios</Link>
+        <Link to="/newStudent">New Student</Link>
       </div>
     </div>
   )
