@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+/* Clean Code Editor Scrollbar */
+.code-scroll::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+
+.code-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.code-scroll::-webkit-scrollbar-thumb {
+  background: #454955;
+  border-radius: 10px;
+}
+
+.code-scroll::-webkit-scrollbar-thumb:hover {
+  background: #636b7a;
+}
+
+/* Firefox */
+.code-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #454955 transparent;
+}
