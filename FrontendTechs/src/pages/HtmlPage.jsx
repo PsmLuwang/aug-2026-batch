@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import Navbar from '../components/Navbar'
 import { html, htmlSubTopics } from '../data/html'
 import CodeExample from '../components/CodeExample'
@@ -39,9 +39,9 @@ const HtmlPage = () => {
           <div className='space-y-4'>
             <h1 className='text-lg font-semibold mb-4'>Topics</h1>
             
-            <div className='space-y-2 overflow-y-scroll h-dvh code-scroll'>
+            <div className='space-y-2 overflow-y-scroll h-dvh code-scroll scroll-smooth'>
               {htmlSubTopics.map((topic, i) => (
-                <div key={i} className={`${i == displayExampleCode.i ? "bg-gray-50 border border-gray-200" : ""} p-3 rounded-lg`}>
+                <div key={i} id={"test"+(i+1)} className={`${i == displayExampleCode.i ? "bg-gray-50 border border-gray-200" : ""} p-3 rounded-lg`}>
                   <div className='flex justify-between items-center pr-2'>
                     <h1 className={`font-semibold text-lg ${i == displayExampleCode.i ? "text-orange-500" : ""}`}>{i+1}. {topic.name}</h1>
                     <button onClick={() => setDisplayExampleCode({...topic, i})} className='cursor-pointer bg-gray-100 rounded-full p-1'>

@@ -493,3 +493,4 @@ export const htmlSubTopics = [
     example: "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>My Website</title>\n  <link rel=\"stylesheet\" href=\"style.css\">\n  <script src=\"script.js\" defer></script>\n</head>\n<body>\n  <header>\n    <h1>My Website</h1>\n  </header>\n  <main>\n    <p>Welcome to my website.</p>\n  </main>\n</body>\n</html>"
   }
 ];
+

@@ -1,7 +1,11 @@
-import { Menu } from 'lucide-react'
+import { Sidebar } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import SidebarMenu from './SidebarMenu'
+import { useState } from 'react'
 
 const Navbar = () => {
+  const [isSidebarMenuOpen, setIsSidebarMenuOpen] = useState(false);
+
   return (
     <nav className='flex justify-between h-16 px-5 items-center border-b border-gray-300'>
       <Link to={'/'} className='text-lg font-semibold'>Frontend Technologies</Link>
@@ -14,9 +18,14 @@ const Navbar = () => {
         <Link to={'/reviews'}>Reviews</Link>
       </div>
 
-      <button className='sm:hidden'>
-        <Menu />
+      <button onClick={() => setIsSidebarMenuOpen(prev => !prev)} className='sm:hidden'>
+        <Sidebar />
       </button>
+
+      <SidebarMenu 
+        isSidebarMenuOpen={isSidebarMenuOpen}
+        toggleSidebarMenu={setIsSidebarMenuOpen} 
+      />
     </nav>
   )
 }
