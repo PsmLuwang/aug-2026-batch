@@ -3,7 +3,7 @@ import { login, signup, signupVerification, getAllUsers } from '../controllers/a
 
 const router = express.Router();
 
-router.post('/signup/:num', signup)
+router.post('/signup', signup)
 router.post('/signup/verification', signupVerification)
 router.post('/login', login)
 router.get('/getAllUsers', getAllUsers)

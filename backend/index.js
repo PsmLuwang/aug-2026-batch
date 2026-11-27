@@ -1,9 +1,10 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
+import connectDB from "./utils/connectDB.js";
+
 import authRoutes from './routes/auth.route.js'
 import orderRoutes from './routes/order.route.js'
-import connectDB from "./utils/connectDB.js";
 dotenv.config();
 
 const FRONTEND_URL = process.env.NODE_ENV == "development" 

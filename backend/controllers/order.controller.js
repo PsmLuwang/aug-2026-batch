@@ -16,4 +16,16 @@ const create = (req, res) => {
   })
 }
 
-export { create }
+
+const getAllOrders = (req, res) => {
+  const orders = [{ name: "item 1" }, { name: "item 2" }, { name: "item 3" }];
+
+  res.status(200).json({
+    success: true,
+    message: "Fetched all orders details.",
+    orders
+  })
+}
+
+
+export { create, getAllOrders }
